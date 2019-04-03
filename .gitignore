@@ -60,6 +60,13 @@ modules.xml
 .idea/misc.xml
 *.ipr
 
+.idea/.name
+.idea/codeStyles/Project.xml
+.idea/compiler.xml
+.idea/dbnavigator.xml
+.idea/encodings.xml
+.idea/vcs.xml
+
 ### Java ###
 # Compiled class file
 *.class
