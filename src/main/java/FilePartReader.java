@@ -2,8 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class FilePartReader {
 
@@ -16,7 +14,7 @@ public class FilePartReader {
     public FilePartReader() {
         // it sets the class' instance variables to some invalid default value
         this.filePath = "src/main/resources/file.txt";
-        this.fromLine = 2;
+        this.fromLine = 1;
         this.toLine = 2;
     }
 
@@ -44,18 +42,18 @@ public class FilePartReader {
     public String readLines() throws FileNotFoundException {
         BufferedReader br = new BufferedReader(new FileReader(filePath));
 
-        List<String> lines = new ArrayList<>();
         String textContent = read();
         StringBuilder stringBuilder = new StringBuilder();
 
         System.out.println("from line: " + fromLine);
         System.out.println("to line: " + toLine + "\n");
 
-        for (int i = fromLine-1; i < toLine; i++) {
-            lines.add(String.valueOf(textContent.split("\n")[i]));
+        for (int i = fromLine - 1; i < toLine; i++) {
+            stringBuilder.append(textContent.split("\n")[i]);
+            stringBuilder.append("\n");
         }
 
-        return stringBuilder.append(lines).toString();
+        return stringBuilder.toString();
     }
 
 
