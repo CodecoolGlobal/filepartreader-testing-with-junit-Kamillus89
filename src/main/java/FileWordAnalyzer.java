@@ -61,7 +61,12 @@ public class FileWordAnalyzer {
             e.printStackTrace();
         }
 
-
+        for (String word : readLines.split("\\s")) {
+            word = word.replaceAll("[\\W]", "").toLowerCase();
+            if (new StringBuilder(word).reverse().toString().equals(word)) {
+                palindromes.add(word);
+            }
+        }
 
         return palindromes;
     }
@@ -77,5 +82,7 @@ public class FileWordAnalyzer {
         String words = fileWordAnalyzer.getWordsContainingSubstring("is").toString();
         System.out.println(words);
 
+        String palindromes = fileWordAnalyzer.getStringsWhichPalindromes().toString();
+        System.out.println("Palindromes:\n" + palindromes); 
     }
 }

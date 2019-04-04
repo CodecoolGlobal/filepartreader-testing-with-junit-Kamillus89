@@ -15,7 +15,7 @@ public class FilePartReader {
         // it sets the class' instance variables to some invalid default value
         this.filePath = "src/main/resources/file.txt";
         this.fromLine = 1;
-        this.toLine = 2;
+        this.toLine = 4;
     }
 
     public void setup(String filePath, int fromLine, int toLine) {
