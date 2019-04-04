@@ -33,8 +33,37 @@ public class FileWordAnalyzer {
     }
 
     public List getWordsContainingSubstring(String subString) {
+        List<String> words = new ArrayList<>();
+        String readLines = "";
 
-        
+        try {
+            readLines = filePartReader.readLines();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        for (String word : readLines.split("\\s")) {
+            if (word.contains(subString)) {
+                words.add(word);
+            }
+        }
+
+        return words;
+    }
+
+    public List getStringsWhichPalindromes (){
+        List<String> palindromes = new ArrayList<>();
+        String readLines = "";
+
+        try {
+            readLines = filePartReader.readLines();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return palindromes;
     }
 
     public static void main(String[] args) {
@@ -43,6 +72,10 @@ public class FileWordAnalyzer {
         FileWordAnalyzer fileWordAnalyzer = new FileWordAnalyzer(filePartReader);
 
         String nStr = fileWordAnalyzer.getWordsOrderedAlphabetically().toString();
-        System.out.println(nStr);
+        System.out.println(nStr + "\n");
+
+        String words = fileWordAnalyzer.getWordsContainingSubstring("is").toString();
+        System.out.println(words);
+
     }
 }
