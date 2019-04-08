@@ -21,6 +21,10 @@ public class FilePartReader {
     public void setup(String filePath, int fromLine, int toLine) {
         if (toLine < fromLine || fromLine < 1) {
             throw new IllegalArgumentException("toLine must be bigger than fromLine !!!");
+        } else {
+            this.filePath = filePath;
+            this.fromLine = fromLine;
+            this.toLine = toLine;
         }
     }
 
@@ -40,7 +44,7 @@ public class FilePartReader {
     }
 
     public String readLines() throws FileNotFoundException {
-        BufferedReader br = new BufferedReader(new FileReader(filePath));
+//        BufferedReader br = new BufferedReader(new FileReader(filePath));
 
         String textContent = read();
         StringBuilder stringBuilder = new StringBuilder();
