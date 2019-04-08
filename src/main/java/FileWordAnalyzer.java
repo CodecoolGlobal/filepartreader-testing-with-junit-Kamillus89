@@ -60,7 +60,7 @@ public class FileWordAnalyzer {
 
         for (String word : readLines.split("\\s")) {
             word = word.replaceAll("[\\W]", "").toLowerCase();
-            if (new StringBuilder(word).reverse().toString().equals(word)) {
+            if (new StringBuilder(word).reverse().toString().equals(word) && !word.equals("")) {
                 palindromes.add(word);
             }
         }

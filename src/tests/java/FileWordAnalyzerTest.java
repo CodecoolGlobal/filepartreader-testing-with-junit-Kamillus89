@@ -62,5 +62,21 @@ class FileWordAnalyzerTest {
         assertEquals(expected, actual);
     }
 
-    
+    @Test
+    @DisplayName("getStringsWhichPalindromes select proper words")
+    void testIfGetStringsWhichArePalindromes() throws FileNotFoundException {
+        //Arrange
+        String sampleString =  "123\n This is first line\n and this is second line.\n some ble ble ble\n potop anna";
+        when(filePartReader.readLines()).thenReturn(sampleString);
+
+        List<String> expected = new ArrayList<>();
+        expected.add("potop");
+        expected.add("anna");
+
+        //Act
+        List<String> actual = fileWordAnalyzer.getStringsWhichPalindromes();
+
+        //Assert
+        assertEquals(expected, actual);
+    }
 }
