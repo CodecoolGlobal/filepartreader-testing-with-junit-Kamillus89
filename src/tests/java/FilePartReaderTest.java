@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FilePartReaderTest {
 
-    FilePartReader filePartReader;
+    private FilePartReader filePartReader;
 
     @BeforeEach
     void createNewFilePartReader() {
@@ -17,7 +17,7 @@ class FilePartReaderTest {
 
     @Test
     @DisplayName("throws IllegalArgumentException when wrong arguments are passed")
-    public void testIfSetupThrowsException() {
+    void testIfSetupThrowsException() {
         int toLine = 5;
         int fromLine = -1;
         String filePath = "";
@@ -27,18 +27,18 @@ class FilePartReaderTest {
 
     @Test
     @DisplayName("throws FileNotFoundException when wrong path is provided")
-    public void testIfReadThrowsException() {
+    void testIfReadThrowsException() {
         int toLine = 1;
         int fromLine = 1;
         String filePath = "";
-        
+
         filePartReader.setup(filePath, fromLine, toLine);
 
         assertThrows(FileNotFoundException.class, () -> filePartReader.read());
     }
 
     @Test
-    public void testIfReadLinesReadsFirstLine() throws FileNotFoundException {
+    void testIfReadLinesReadsFirstLine() throws FileNotFoundException {
         int toLine = 1;
         int fromLine = 1;
         String filePath = "src/main/resources/file.txt";

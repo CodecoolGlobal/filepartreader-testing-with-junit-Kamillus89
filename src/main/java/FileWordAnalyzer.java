@@ -17,11 +17,7 @@ public class FileWordAnalyzer {
 
         String readLines = "";
 
-        try {
-            readLines = filePartReader.readLines();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        readLines = getString(readLines);
 
         for (String word : readLines.split("\\s")) {
             alpahbeticallyOrderdWords.add(word);
@@ -32,15 +28,20 @@ public class FileWordAnalyzer {
         return alpahbeticallyOrderdWords;
     }
 
-    public List getWordsContainingSubstring(String subString) {
-        List<String> words = new ArrayList<>();
-        String readLines = "";
-
+    private String getString(String readLines) {
         try {
             readLines = filePartReader.readLines();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        return readLines;
+    }
+
+    public List getWordsContainingSubstring(String subString) {
+        List<String> words = new ArrayList<>();
+        String readLines = "";
+
+        readLines = getString(readLines);
 
         for (String word : readLines.split("\\s")) {
             if (word.contains(subString)) {
@@ -55,11 +56,7 @@ public class FileWordAnalyzer {
         List<String> palindromes = new ArrayList<>();
         String readLines = "";
 
-        try {
-            readLines = filePartReader.readLines();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        readLines = getString(readLines);
 
         for (String word : readLines.split("\\s")) {
             word = word.replaceAll("[\\W]", "").toLowerCase();
