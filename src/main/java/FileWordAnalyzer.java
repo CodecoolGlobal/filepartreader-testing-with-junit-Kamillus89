@@ -83,6 +83,6 @@ public class FileWordAnalyzer {
         System.out.println(words);
 
         String palindromes = fileWordAnalyzer.getStringsWhichPalindromes().toString();
-        System.out.println("Palindromes:\n" + palindromes); 
+        System.out.println("Palindromes:\n" + palindromes);
     }
 }
